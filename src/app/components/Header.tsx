@@ -25,7 +25,7 @@ export const Header = ({ activeSection, scrollToSection }: NavBarProps) => (
         <h1
           className={`${luckiestGuy.className} text-2xl font-bold mt-1 text-purple-900`}
         >
-          lyuna's portfolio
+          lyuna&apos;s portfolio
         </h1>
         <div className="flex justify-center items-center space-x-3 mt-1">
           <a

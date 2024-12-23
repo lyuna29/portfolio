@@ -122,7 +122,7 @@ export const MeSection = () => {
                   period: "24.11 ~ 24.12",
                   link: "https://github.com/monthly-cs/2024-11-modern-react-deep-dive",
                 },
-              ].map((study, index) => (
+              ].map((study) => (
                 <motion.div
                   key={study.title}
                   variants={itemVariants}
