@@ -26,13 +26,13 @@ const itemVariants = {
 };
 
 export const SkillsSection = () => (
-  <section id="skills" className="h-screen py-16">
+  <section id="skills" className="min-h-screen py-16">
     <div className="max-w-4xl mx-auto px-4">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`${luckiestGuy.className} text-5xl font-bold text-purple-900 mb-12 text-center`}
+        className={`${luckiestGuy.className} text-3xl md:text-5xl font-bold text-purple-900 mb-8 md:mb-12 text-center`}
       >
         Skills
       </motion.h2>
@@ -41,7 +41,7 @@ export const SkillsSection = () => (
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-2 md:grid-cols-3 gap-6"
+        className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
       >
         {skills.map((skill) => (
           <motion.div

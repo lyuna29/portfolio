@@ -40,13 +40,16 @@ export const MeSection = () => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
   return (
-    <section id="me" className="flex items-center justify-center px-4 py-16">
-      <div className="max-w-4xl mx-auto">
+    <section
+      id="me"
+      className="flex items-center justify-center px-4 py-8 md:py-16"
+    >
+      <div className="w-full max-w-4xl mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={`${luckiestGuy.className} text-5xl font-bold mb-12 text-center`}
+          className={`${luckiestGuy.className} text-2xl md:text-5xl font-bold mb-6 md:mb-12 text-center`}
         >
           About Me
         </motion.h2>
@@ -56,34 +59,45 @@ export const MeSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-12"
+          className="space-y-6 md:space-y-12"
         >
-          <motion.div variants={itemVariants} className="flex space-x-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4"
+          >
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="w-[450px] bg-white/80 rounded-lg p-6 shadow-lg"
+              className="w-full md:w-1/2 bg-white/80 rounded-lg p-4 md:p-6 shadow-lg"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-lg md:text-xl font-semibold">
                   성결대학교 컴퓨터공학과
                 </h3>
-                <span className="text-purple-600">18.04 ~ 22.07</span>
+                <span className="text-purple-600 text-sm md:text-base">
+                  18.04 ~ 22.07
+                </span>
               </div>
-              <p className="text-gray-700">• 학생회 기획국 국장</p>
-              <p className="text-gray-700">• 학생회 홍보국 국장</p>
+              <p className="text-sm md:text-base text-gray-700">
+                • 학생회 기획국 국장
+              </p>
+              <p className="text-sm md:text-base text-gray-700">
+                • 학생회 홍보국 국장
+              </p>
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="w-[450px] bg-white/80 rounded-lg p-6 shadow-lg"
+              className="w-full md:w-1/2 bg-white/80 rounded-lg p-4 md:p-6 shadow-lg"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-lg md:text-xl font-semibold">
                   코딩 봉사 동아리(Tellus)
                 </h3>
-                <span className="text-purple-600">21.09 ~ 21.11</span>
+                <span className="text-purple-600 text-sm md:text-base">
+                  21.09 ~ 21.11
+                </span>
               </div>
-              <p className="text-gray-700">
+              <p className="text-sm md:text-base text-gray-700">
                 평촌초등학교에서 매주 주말마다 초5,6학년 학생들을 대상으로
                 스크래치 교육.
               </p>
@@ -94,12 +108,12 @@ export const MeSection = () => {
             <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className={`${luckiestGuy.className} text-2xl font-semibold`}
+              className={`${luckiestGuy.className} text-xl md:text-2xl font-semibold`}
             >
               Study
             </motion.h3>
 
-            <div className="flex gap-4">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
               {[
                 {
                   image: react,
@@ -127,50 +141,55 @@ export const MeSection = () => {
                   key={study.title}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
-                  className="flex w-[300px] bg-white/80 rounded-lg p-6 shadow-lg"
+                  className="flex-1 md:flex w-full bg-white/80 rounded-lg p-4 md:px-4 md:py-6 shadow-lg"
                 >
-                  <Image
-                    src={study.image}
-                    alt={study.alt}
-                    className="w-[100px] h-[120px] rounded-md"
-                  />
-                  <div className="flex flex-col justify-between ml-4">
-                    <div>
-                      <h4 className="text-lg font-semibold">{study.title}</h4>
-                      <span className="text-purple-600">{study.period}</span>
+                  <div className="flex flex-col  justify-between h-full">
+                    <div className="flex flex-col items-center md:items-start md:flex-row  gap-4">
+                      <Image
+                        src={study.image}
+                        alt={study.alt}
+                        className="w-24 md:w-24 h-24 md:h-32 rounded-md object-cover"
+                      />
+                      <div>
+                        <h4 className="text-base md:text-lg font-semibold">
+                          {study.title}
+                        </h4>
+                        <span className="text-sm md:text-base text-purple-600">
+                          {study.period}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex justify-end">
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
-                        onClick={() => handleStudyClick(study.link)}
-                        className="cursor-pointer"
-                      >
-                        <FaRegArrowAltCircleRight size={22} />
-                      </motion.div>
-                    </div>
+
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                      onClick={() => handleStudyClick(study.link)}
+                      className="flex justify-end md:items-end cursor-pointer mt-2 md:mt-0"
+                    >
+                      <FaRegArrowAltCircleRight size={20} />
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-6">
+          <motion.div variants={itemVariants} className="space-y-4">
             <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className={`${luckiestGuy.className} text-2xl font-semibold`}
+              className={`${luckiestGuy.className} text-xl md:text-2xl font-semibold`}
             >
               Award & Certificate
             </motion.h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-white/80 rounded-lg p-6 shadow-lg"
+                className="bg-white/80 rounded-lg p-4 md:p-6 shadow-lg"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-lg font-semibold flex items-center">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h4 className="text-base md:text-lg font-semibold flex items-center">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
@@ -179,17 +198,21 @@ export const MeSection = () => {
                     </motion.div>
                     리눅스마스터 2급
                   </h4>
-                  <span className="text-purple-600">2022.09</span>
+                  <span className="text-sm md:text-base text-purple-600">
+                    2022.09
+                  </span>
                 </div>
-                <p className="text-gray-700">리눅스 마스터 2급 자격증 취득.</p>
+                <p className="text-sm md:text-base text-gray-700">
+                  리눅스 마스터 2급 자격증 취득.
+                </p>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-white/80 rounded-lg p-6 shadow-lg"
+                className="bg-white/80 rounded-lg p-4 md:p-6 shadow-lg"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h4 className=" text-md font-semibold flex items-center">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h4 className="text-base md:text-lg font-semibold flex items-center">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
@@ -198,9 +221,11 @@ export const MeSection = () => {
                     </motion.div>
                     프론트엔드 개발 부트캠프 최종프로젝트 대상
                   </h4>
-                  <span className="text-purple-600">2022.09</span>
+                  <span className="text-sm md:text-base text-purple-600">
+                    2022.09
+                  </span>
                 </div>
-                <p className="text-gray-700">
+                <p className="text-sm md:text-base text-gray-700">
                   Urr 프로젝트로 130여명의 수강생의 최종프로젝트 결과물 25개 중
                   1등을 하여 대상 수상.
                 </p>

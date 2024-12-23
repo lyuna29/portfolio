@@ -18,7 +18,7 @@ export default function Home() {
     setIsScrolling(true);
     const element = document.getElementById(sectionId);
     if (element) {
-      const navHeight = 80;
+      const navHeight = window.innerWidth < 768 ? 120 : 80;
       const elementPosition = element.offsetTop - navHeight;
 
       window.scrollTo({
@@ -34,6 +34,9 @@ export default function Home() {
   };
 
   const handleWheelEvent = (e: WheelEvent) => {
+    // 모바일에서는 wheel 이벤트 처리하지 않음
+    if (window.innerWidth < 768) return;
+
     if (isScrolling) {
       e.preventDefault();
       return;
@@ -43,10 +46,8 @@ export default function Home() {
     const currentIndex = sections.indexOf(activeSection);
 
     if (e.deltaY > 0 && currentIndex < sections.length - 1) {
-      // Scrolling down
       scrollToSection(sections[currentIndex + 1] as SectionId);
     } else if (e.deltaY < 0 && currentIndex > 0) {
-      // Scrolling up
       scrollToSection(sections[currentIndex - 1] as SectionId);
     }
   };
@@ -56,7 +57,7 @@ export default function Home() {
       if (isScrolling) return;
 
       const sections = ["about", "skills", "projects", "me"];
-      const navHeight = 80;
+      const navHeight = window.innerWidth < 768 ? 120 : 80;
 
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
@@ -72,12 +73,18 @@ export default function Home() {
       }
     };
 
+    // 데스크톱에서만 wheel 이벤트 리스너 추가
+    if (window.innerWidth >= 768) {
+      window.addEventListener("wheel", handleWheelEvent, { passive: false });
+    }
+
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("wheel", handleWheelEvent, { passive: false });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("wheel", handleWheelEvent);
+      if (window.innerWidth >= 768) {
+        window.removeEventListener("wheel", handleWheelEvent);
+      }
     };
   }, [isScrolling, activeSection]);
 
@@ -85,7 +92,6 @@ export default function Home() {
     <main className="min-h-screen gradient-animation text-purple-900">
       <Header activeSection={activeSection} scrollToSection={scrollToSection} />
       <Intro scrollToSection={scrollToSection} />
-
       <SkillsSection />
       <ProjectsSection />
       <MeSection />

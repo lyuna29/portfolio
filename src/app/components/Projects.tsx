@@ -68,7 +68,7 @@ export const ProjectsSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className={`${luckiestGuy.className} text-5xl font-bold text-purple-900 mb-12 text-center`}
+            className={`${luckiestGuy.className} text-3xl md:text-5xl font-bold text-purple-900 mb-8 md:mb-12 text-center`}
           >
             Projects
           </motion.h2>
@@ -78,10 +78,10 @@ export const ProjectsSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex space-x-4"
+            className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-4"
           >
             {projects.map((project) => (
-              <div key={project.title}>
+              <div key={project.title} className="w-full md:w-auto">
                 <div className="flex justify-end ">
                   <div
                     className={`w-36 h-[42px] flex justify-center items-center gap-3 rounded-t-lg mr-1 ${
@@ -146,7 +146,7 @@ export const ProjectsSection = () => {
                   onClick={() =>
                     handleProjectClick(project.title, project.links?.website)
                   }
-                  className="w-[350px] h-[580px] bg-white/80 p-8 rounded-lg shadow-lg border border-purple-200 cursor-pointer"
+                  className="w-full md:w-[350px] h-auto md:h-[580px] bg-white/80 p-4 md:p-8 rounded-lg shadow-lg"
                   variants={projectVariants}
                   initial="initial"
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}

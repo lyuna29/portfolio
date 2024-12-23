@@ -15,7 +15,7 @@ type HeroSectionProps = {
 export const Intro = ({ scrollToSection }: HeroSectionProps) => (
   <section
     id="about"
-    className="min-h-screen pt-20 flex items-center justify-center relative from-purple-50 to-purple-100"
+    className="min-h-screen pt-32 md:pt-20 flex items-center justify-center relative"
   >
     <div className="max-w-4xl mx-auto text-center px-4">
       <motion.div
@@ -24,11 +24,14 @@ export const Intro = ({ scrollToSection }: HeroSectionProps) => (
         transition={{ duration: 0.8 }}
       >
         <h1
-          className={`${luckiestGuy.className} text-7xl font-bold text-[#9937b6] mb-4`}
+          className={`${luckiestGuy.className} text-4xl md:text-7xl font-bold text-[#9937b6] mb-4`}
         >
           Frontend Engineer
         </h1>
-        <p className="ria-font text-5xl font-extrabold text-purple-900 mb-20">
+        <p className="ria-font text-3xl md:text-5xl font-extrabold text-purple-900 mb-10 md:mb-20">
+          임현아
+        </p>
+        <p className="text-lg md:text-xl font-bold text-gray-700 mb-2">
           임현아
         </p>
         <p className="text-xl font-bold text-gray-700 mb-2">
