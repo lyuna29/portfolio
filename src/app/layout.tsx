@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     images: "/main.png",
   },
   icons: {
-    icon: "/app/favicon.ico",
+    icon: "/favicon.ico",
   },
   metadataBase: new URL("https://www.lyuna.site/"),
 };
