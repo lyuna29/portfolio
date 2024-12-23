@@ -4,6 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "임현아 포트폴리오",
   description: "Frontend Developer Portfolio",
+  openGraph: {
+    images: "/main.png",
+  },
+  icons: {
+    icon: "/app/favicon.ico",
+  },
+  metadataBase: new URL("https://www.lyuna.site/"),
 };
 
 export default function RootLayout({
