@@ -46,14 +46,16 @@ export const Intro = ({ scrollToSection }: HeroSectionProps) => (
           <EmailButton />
         </div>
       </motion.div>
-      <motion.div
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        onClick={() => scrollToSection("skills")}
-      >
-        <ChevronsDown size={40} className="text-white opacity-90" />
-      </motion.div>
+      <div className="w-full flex justify-center">
+        <motion.div
+          className="absolute bottom-2 md:bottom-12 cursor-pointer"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          onClick={() => scrollToSection("skills")}
+        >
+          <ChevronsDown size={40} className="text-white" />
+        </motion.div>
+      </div>
     </div>
   </section>
 );
