@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 import { Luckiest_Guy } from "next/font/google";
 import { projects } from "@/data/projects";
-import { Youtube, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const luckiestGuy = Luckiest_Guy({
@@ -61,7 +61,6 @@ export const ProjectDetail = ({ projectId }: ProjectDetailProps) => {
                     project.links.youtube
                   )}`}
                   title="YouTube video player"
-                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="rounded-lg"

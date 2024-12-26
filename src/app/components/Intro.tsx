@@ -31,9 +31,7 @@ export const Intro = ({ scrollToSection }: HeroSectionProps) => (
         <p className="ria-font text-3xl md:text-5xl font-extrabold text-purple-900 mb-10 md:mb-20">
           임현아
         </p>
-        <p className="text-lg md:text-xl font-bold text-gray-700 mb-2">
-          임현아
-        </p>
+
         <p className="text-xl font-bold text-gray-700 mb-2">
           협업을 통해 팀원과 함께 성장하는 과정에서 기술과 소통의 가치를
           이해하는 프론트엔드 개발자입니다.
