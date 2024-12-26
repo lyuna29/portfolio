@@ -26,7 +26,7 @@ export const projects: Project[] = [
     links: {
       notion:
         "https://gentle-baryonyx-bf4.notion.site/11cedee0214880e8baece311bb09fce5?pvs=4",
-      youtube: "https://youtube.com/demo3",
+      youtube: "https://youtu.be/vepDVXoJ0x4?si=5Gu3-GtpKs49Cw78",
       github: "https://github.com/OEasy-for-Cucumber/-FE-Oeasy",
     },
     additionalContent: [
