@@ -70,11 +70,9 @@ export const ProjectDetail = ({ projectId }: ProjectDetailProps) => {
 
             <p className="text-purple-700 pt-2">{project.period}</p>
 
-            <p className="text-purple-950 py-4">{project.description}</p>
-          </div>
+            <p className="text-purple-950 py-2">{project.description}</p>
 
-          <div className="md:col-span-4 space-y-6">
-            <div className="bg-white rounded-lg p-6 shadow-lg">
+            <div className=" pt-2">
               <h2
                 className={`${luckiestGuy.className} text-lg md:text-2xl font-bold text-purple-900 mb-4`}
               >
@@ -92,6 +90,9 @@ export const ProjectDetail = ({ projectId }: ProjectDetailProps) => {
                 ))}
               </div>
             </div>
+          </div>
+
+          <div className="md:col-span-4 space-y-6">
             {project.additionalContent && (
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <h2

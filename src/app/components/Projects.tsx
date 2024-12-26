@@ -74,7 +74,7 @@ export const ProjectsSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-4 cursor-pointer"
+            className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8 cursor-pointer"
           >
             {projects.map((project) => (
               <div key={project.title} className="w-full md:w-1/2">
@@ -138,7 +138,7 @@ export const ProjectsSection = () => {
                 <motion.div
                   id={project.title}
                   onClick={() => handleProjectClick(project.title)}
-                  className="w-full h-auto md:h-[530px] bg-white/80 p-4 md:p-8 rounded-lg shadow-lg"
+                  className="w-full h-auto md:h-[550px] bg-white/80 p-4 md:p-8 rounded-lg shadow-lg"
                   variants={projectVariants}
                   initial="initial"
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
