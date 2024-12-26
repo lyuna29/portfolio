@@ -102,39 +102,19 @@ export const Header = ({ activeSection, scrollToSection }: NavBarProps) => {
               exit={{ opacity: 0, height: 0 }}
               className="w-full md:hidden bg-white/90"
             >
-              <div className="flex flex-col p-4">
-                {["about", "skills", "projects", "me"].map((section) => (
-                  <motion.button
-                    key={section}
-                    onClick={() => {
-                      scrollToSection(
-                        section as "about" | "skills" | "projects" | "me"
-                      );
-                      setIsOpen(false);
-                    }}
-                    className={`py-2 px-4 text-left transition-all ${
-                      activeSection === section
-                        ? "text-purple-900 font-bold"
-                        : "text-purple-600"
-                    }`}
+              <div className="flex justify-start space-x-6 mt-4 px-4">
+                {links.map(({ href, icon, label, textColor }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col justify-between items-center"
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </motion.button>
+                    {icon}
+                    <p className={`text-xs mt-1 ${textColor}`}>{label}</p>
+                  </a>
                 ))}
-                <div className="flex justify-start space-x-6 mt-4 px-4">
-                  {links.map(({ href, icon, label, textColor }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex flex-col justify-between items-center"
-                    >
-                      {icon}
-                      <p className={`text-xs mt-1 ${textColor}`}>{label}</p>
-                    </a>
-                  ))}
-                </div>
               </div>
             </motion.div>
           )}

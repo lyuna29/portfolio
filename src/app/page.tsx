@@ -5,6 +5,7 @@ import { Intro } from "./components/Intro";
 import { SkillsSection } from "./components/Skills";
 import { ProjectsSection } from "./components/Projects";
 import { MeSection } from "./components/Me";
+import { TopBtn } from "./components/TopBtn";
 
 type SectionId = "about" | "skills" | "projects" | "me";
 
@@ -95,7 +96,8 @@ export default function Home() {
       <SkillsSection />
       <ProjectsSection />
       <MeSection />
-      <footer className="bg-white py-8 border-t border-purple-200">
+      <TopBtn />
+      <footer className=" py-8 ">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-purple-600">
             © 임현아. Frontend Developer Portfolio

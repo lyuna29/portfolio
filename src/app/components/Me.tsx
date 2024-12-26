@@ -212,7 +212,7 @@ export const MeSection = () => {
                 className="bg-white/80 rounded-lg p-4 md:p-6 shadow-lg"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h4 className="text-base md:text-lg font-semibold flex items-center">
+                  <h4 className="text-base md:text-md font-semibold flex items-center">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}

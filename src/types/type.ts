@@ -8,15 +8,18 @@ export type ProjectLinks = {
   website?: string;
 };
 
-export type Project = {
+export interface Project {
+  id: string;
   title: string;
   period: string;
   description: string;
+  role: string;
   tech: string[];
   achievements: string[];
   links?: ProjectLinks;
-};
-
+  additionalContent?: string[];
+  image?: string;
+}
 import { IconType } from "react-icons";
 
 export type SkillItem = {

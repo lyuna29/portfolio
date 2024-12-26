@@ -1,8 +1,10 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { Youtube, Github, Globe } from "lucide-react";
 import { SiNotion } from "react-icons/si";
 import { Luckiest_Guy } from "next/font/google";
 import { projects } from "@/data/projects";
+import { useRouter } from "next/navigation";
 
 const luckiestGuy = Luckiest_Guy({
   weight: "400",
@@ -38,32 +40,26 @@ const projectVariants = {
 };
 
 export const ProjectsSection = () => {
-  const handleProjectClick = async (
-    projectId: string,
-    website: string | undefined
-  ) => {
-    if (!website) {
-      return;
-    }
+  const push = useRouter().push;
 
+  const handleProjectClick = async (projectId: string) => {
     const element = document.getElementById(projectId);
     if (element) {
       element.classList.add("project-clicked");
 
       await new Promise((resolve) => setTimeout(resolve, 300));
 
-      window.open(website, "_blank", "noopener,noreferrer");
+      push(`/projects/${projectId}`);
 
       setTimeout(() => {
         element.classList.remove("project-clicked");
       }, 100);
     }
   };
-
   return (
     <AnimatePresence mode="wait">
-      <section id="projects" className="py-16 bg-purple-50/60">
-        <div className="max-w-6xl mx-auto px-4">
+      <section id="projects" className="pt-16 min-h-screen bg-purple-50/60">
+        <div className="max-w-5xl mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -78,17 +74,15 @@ export const ProjectsSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-4"
+            className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-4 cursor-pointer"
           >
             {projects.map((project) => (
-              <div key={project.title} className="w-full md:w-auto">
+              <div key={project.title} className="w-full md:w-1/2">
                 <div className="flex justify-end ">
                   <div
                     className={`w-36 h-[42px] flex justify-center items-center gap-3 rounded-t-lg mr-1 ${
-                      project.title === "Weather Wear"
-                        ? "bg-[#f8ddfb]/40"
-                        : project.title === "Urr(우르르)"
-                        ? "bg-[#d0d6fc]/40"
+                      project.title === "Urr"
+                        ? "bg-[#c3cafa]/40"
                         : project.title === "Oeasy"
                         ? "bg-[#e5ffdf]/40"
                         : ""
@@ -143,10 +137,8 @@ export const ProjectsSection = () => {
                 </div>
                 <motion.div
                   id={project.title}
-                  onClick={() =>
-                    handleProjectClick(project.title, project.links?.website)
-                  }
-                  className="w-full md:w-[350px] h-auto md:h-[580px] bg-white/80 p-4 md:p-8 rounded-lg shadow-lg"
+                  onClick={() => handleProjectClick(project.title)}
+                  className="w-full h-auto md:h-[530px] bg-white/80 p-4 md:p-8 rounded-lg shadow-lg"
                   variants={projectVariants}
                   initial="initial"
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
